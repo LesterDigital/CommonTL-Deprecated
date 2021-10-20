@@ -1,6 +1,6 @@
 #pragma once
 
-namespace cmtl
+namespace ctl
 {
 	template<typename VectorT>
 	class VectorIterator

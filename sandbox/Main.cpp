@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <string>
 
 #include "../../DataStructures/src/time/TimeLib.h"
 
@@ -13,7 +14,7 @@ int main()
 
 	int length = 1'000'000;
 
-	cmtl::Vector<int> myArr;
+	ctl::Vector<int> myArr;
 	std::vector<int> stdArr;
 
 	myArr.Reserve(length);
@@ -23,6 +24,12 @@ int main()
 		myArr.PushBack(1);
 	for (int i = 0; i < length; i++)
 		stdArr.push_back(1);
+
+	std::string str = "Test.";
+
+	std::cout << sizeof(char);
+
+	return 0;
 
 	tb.Activate();
 
