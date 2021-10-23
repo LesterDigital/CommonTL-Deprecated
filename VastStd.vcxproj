@@ -140,6 +140,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="include\Vast\Utility.h" />
     <ClInclude Include="include\Vast\String.h" />
     <ClInclude Include="include\Vast\Vector.h" />
   </ItemGroup>

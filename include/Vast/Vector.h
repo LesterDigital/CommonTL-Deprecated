@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef VECTOR_H
+#define VECTOR_H
+
 namespace ctl
 {
 	template<typename VectorT>
@@ -187,3 +190,5 @@ namespace ctl
 		size_t m_Capacity = 0;
 	};
 }
+
+#endif

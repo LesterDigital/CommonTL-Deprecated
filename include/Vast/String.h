@@ -1,7 +1,11 @@
 #pragma once
 
+#ifndef STRING_H
+#define STRING_H
+
 namespace ctl
 {
+	// Dynamically allocated String
 	class String
 	{
 	public:
@@ -20,6 +24,7 @@ namespace ctl
 		char* m_Buffer;
 	};
 
+	// Static string
 	class StringView
 	{
 	public:
@@ -32,3 +37,5 @@ namespace ctl
 		const char* m_ViewBuffer;
 	};
 }
+
+#endif
