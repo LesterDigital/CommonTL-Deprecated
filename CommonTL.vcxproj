@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{1c2bbad3-bf13-4e91-9106-ffdf722a3375}</ProjectGuid>
+    <ProjectGuid>{7F6434FE-27F4-4B66-882E-59FE2DFC5B76}</ProjectGuid>
     <RootNamespace>VastStd</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -88,7 +88,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)DataStructures\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)DataStructures\src; $(SolutionDir)include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -140,18 +140,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="include\Vast\Utility.h" />
-    <ClInclude Include="include\Vast\String.h" />
-    <ClInclude Include="include\Vast\Vector.h" />
+    <ClInclude Include="include\ctl\Allocator.h" />
+    <ClInclude Include="include\ctl\Math.h" />
+    <ClInclude Include="include\ctl\Types.h" />
+    <ClInclude Include="include\ctl\Utility.h" />
+    <ClInclude Include="include\ctl\String.h" />
+    <ClInclude Include="include\ctl\Vector.h" />
+    <ClInclude Include="sandbox\TimeLib.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="sandbox\TimeLib.cpp" />
+    <ClCompile Include="src\Math.cpp" />
     <ClCompile Include="sandbox\Main.cpp" />
     <ClCompile Include="src\String.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DataStructures\DataStructures.vcxproj">
-      <Project>{34b5276b-7cfb-4189-86e1-d6e7a9d72433}</Project>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef UTILITY_H
-#define UTILITY_H
+#ifndef CTL_UTILITY_H
+#define CTL_UTILITY_H
 
 namespace ctl
 {
