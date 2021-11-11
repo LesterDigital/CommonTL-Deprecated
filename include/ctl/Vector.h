@@ -71,6 +71,28 @@ namespace ctl
 			this->Reserve(size);
 		}
 
+		void Insert(size_t index, const Ty& data)
+		{
+			if (index <= this->m_Size)
+			{
+				if (this->m_Capacity < this->m_Size + 1)
+					this->Reserve(this->m_Capacity + this->m_Capacity / 2);
+
+				// Push back the last element of an array
+				this->PushBack(this->m_Buffer[this->m_Size - 1]);
+
+				// Swap adjacent elements from the end until the insertion index, to shift them to the left
+				for (size_t i = this->m_Size - 2; i > index; i--)
+				{
+					Ty tmp = this->m_Buffer[i];
+					this->m_Buffer[i] = this->m_Buffer[i - 1];
+					this->m_Buffer[i - 1] = tmp;
+				}
+
+				this->m_Buffer[index] = data;
+			}
+		}
+
 		void Remove(size_t index)
 		{
 			if (index >= 0 && index < this->m_Size)

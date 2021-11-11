@@ -1,15 +1,27 @@
 #include <iostream>
+#include <array>
 #include <vector>
 #include <string>
 #include <string_view>
+#include <map>
+#include <list>
 
 #include "TimeLib.h"
 
+#include "ctl/Array.h"
+#include "ctl/List.h"
 #include "ctl/Vector.h"
 #include "ctl/String.h"
+#include "ctl/Complex.h"
 #include "ctl/Utility.h"
+#include "ctl/Queue.h"
+
 
 #define LOG(x) std::cout << x << std::endl
+
+using ctl::Vector;
+using ctl::String;
+
 //
 //void* operator new(size_t size)
 //{
@@ -45,7 +57,35 @@ namespace sdtest // speed tests
 
 		return 1;
 	}
+	int llist(int length = 1'000'000)
+	{
+		{
+			Time::ScopedTimer stimer;
 
+			std::list<int> stdlist;
+
+			for (int i = 0; i < length; i++)
+				stdlist.push_back(i + 1);			
+			for (int i = 0; i < length; i++)
+				stdlist.pop_back();
+
+			std::cout << "Std linked list: ";
+		}
+		{
+			Time::ScopedTimer stimer;
+
+			ctl::List<int> ctllist;
+
+			for (int i = 0; i < length; i++)
+				ctllist.PushBack(i + 1);
+			for (int i = 0; i < length; i++)
+				ctllist.PopBack();
+
+			std::cout << "Ctl linked list: ";
+		}
+
+		return 0;
+	}
 	int string(int length = 1'000'000)
 	{
 		Time::TimeBomb tb(1);
@@ -129,33 +169,22 @@ int main()
 	// Old - 147 ms
 	// Removed \0 - 129 ms
 	// "Powers of 2" ReAlloc formula - 119 ms
-	
-	//sdtest::string();
 
-	using ctl::Vector;
+	sdtest::llist();
 
-	Vector<Vector<int>> arr1;
+	//std::list<int> stdlist;
+	//ctl::List<int> llist;
 
-	Vector<int> arr;
+	//for (int i = 0; i < 10; i++)
+	//	llist.PushBack(i + 1);
 
-	arr.PushBack(12);
-	arr.PushBack(11);
-	arr.PushBack(11);
-	arr.PushBack(12);
+	//llist.PopFront();
 
-	arr1.PushBack(arr);
-	arr1.PushBack(arr);
-	arr1.PushBack(arr);
-	arr1.PushBack(arr);
+	//llist.PopBack();
 
-	for (Vector<int> e : arr1)
-	{
-		for (int e2 : e)
-		{
-			std::cout << e2 << ' ';
-		}
-		std::cout << std::endl;
-	}
+	//for (const auto& item : llist)
+	//	std::cout << item << ' ';
+	//std::cout << std::endl;
 
 	return 0;
 }

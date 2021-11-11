@@ -33,6 +33,8 @@ namespace ctl
 
 		String Cut(const size_t& rLeft, const size_t& rRight);
 
+		char* Cstr() const;
+
 		void operator = (const char* string);
 		void operator = (char* string);
 
@@ -41,6 +43,7 @@ namespace ctl
 		void operator += (const char* string);
 
 		bool operator == (const String& string) const;
+		bool operator != (const String& string) const;
 
 		friend std::ostream& operator << (std::ostream& stream, const String& string);
 

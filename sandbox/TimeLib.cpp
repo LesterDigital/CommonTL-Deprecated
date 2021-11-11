@@ -40,7 +40,7 @@ __int8 Time::TimeBomb::SetMode(__int8 mode) {
 void Time::TimeBomb::Activate()
 {
 	Start = unixTime();
-	isActivated = true;
+	ActivatedFlag = true;
 }
 
 __int64 Time::TimeBomb::Explode(const char* title)
@@ -48,7 +48,7 @@ __int64 Time::TimeBomb::Explode(const char* title)
 	End = unixTime();
 	__int64 totTime = End - Start;
 
-	isActivated = false;
+	ActivatedFlag = false;
 
 	// Print
 	std::cout << title << totTime;

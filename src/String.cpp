@@ -86,6 +86,16 @@ namespace ctl
 		return newstr;
 	}
 
+	char* String::Cstr() const
+	{
+		char* cstr = new char[m_Size + 1]{};
+
+		for (size_t i = 0; i < m_Size; i++)
+			cstr[i] = m_Buffer[i];
+
+		return cstr;
+	}
+
 	void String::operator=(const char* string)
 	{
 		Copy(string);
@@ -109,6 +119,11 @@ namespace ctl
 				return false;
 
 		return true;
+	}
+
+	bool String::operator!=(const String& string) const
+	{
+		return !(*this == string);
 	}
 
 	void String::operator=(char* string)

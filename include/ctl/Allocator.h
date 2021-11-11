@@ -41,12 +41,23 @@ namespace ctl
 		}
 
 		// Destructs the last element of an array (capacity stays the same)
-		void Pop()
+		void PopBack()
 		{
 			if (m_Size > 0)
 			{
 				m_Size--;
 				m_Buffer[m_Size].~Ty();
+			}
+		}
+		void PopFront()
+		{
+			if (m_Size > 0)
+			{
+				m_Size--;
+				m_Buffer[0].~Ty();
+				
+				for (size_t i = 0; i < m_Size; i++)
+					m_Buffer[i] = m_Buffer[i + 1];
 			}
 		}
 

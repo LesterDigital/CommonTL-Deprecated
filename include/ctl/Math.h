@@ -7,25 +7,22 @@
 
 #include "Types.h"
 
-namespace ctl
+namespace ctl::Math
 {
-	namespace math
+	class RadomEngine
 	{
-		class RadomEngine
-		{
-		public:
-			// Returns a pseudorandom number in a given range
-			static uint32 Randint(uint32 left, uint32 right);
-		public:
+	public:
+		// Returns a pseudorandom number in a given range
+		static uint32 Randint(uint32 left, uint32 right);
+	public:
 
-		private:
-			uint32 m_Seed;
-		};
+	private:
+		uint32 m_Seed;
+	};
 
-		void Test()
-		{
-			std::default_random_engine eng();
-		}
+	void Test()
+	{
+		std::default_random_engine eng();
 	}
 }
 

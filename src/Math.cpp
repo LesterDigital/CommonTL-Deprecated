@@ -4,15 +4,12 @@
 #include "../include/Vast/Math.h"
 #endif
 
-namespace ctl
+namespace ctl::Math
 {
-	namespace math
-	{ 
-		uint32 RadomEngine::Randint(uint32 left, uint32 right)
-		{
-			// TODO: Randint
-			return NULL;
-		}
+	uint32 RadomEngine::Randint(uint32 left, uint32 right)
+	{
+		// TODO: Randint
+		return NULL;
 	}
 }
 

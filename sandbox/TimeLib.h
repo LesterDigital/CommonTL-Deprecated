@@ -2,7 +2,6 @@
 
 #include <chrono>
 #include <iostream>
-#include <string>
 
 using std::chrono::duration_cast;
 using std::chrono::milliseconds;
@@ -28,7 +27,7 @@ namespace Time
 		__int64 Start = 0;
 		__int64 End = 0;
 
-		bool isActivated = false;
+		bool ActivatedFlag = false;
 	private:
 		__int64 unixTime();
 		__int8 SetMode(__int8 code);
@@ -37,5 +36,20 @@ namespace Time
 
 		void Activate();
 		__int64 Explode(const char* title);
+	};
+
+	class ScopedTimer
+	{
+	public:
+		ScopedTimer()
+		{
+			m_Start = unixTime_ms();
+		}
+		~ScopedTimer()
+		{
+			std::cout << unixTime_ms() - m_Start << " ms" << std::endl;
+		}
+	private:
+		int64_t m_Start;
 	};
 }
